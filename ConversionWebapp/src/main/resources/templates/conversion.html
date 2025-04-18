@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Conversione File</title>
+<!-- Inclusione del font da Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+	rel="stylesheet">
+<!-- Link al file CSS -->
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- Inclusione dell'header -->
+	<div th:insert="fragments/header :: header"></div>
+
+	<div class="container">
+		<!-- Sezione per conversione immagini -->
+		<section id="sezione-immagini" style="display: none;">
+			<h2>Conversione Immagini</h2>
+
+			<!-- Area drag and drop -->
+			<div id="dropzone">Trascina le tue immagini qui o clicca per
+				selezionarle</div>
+			<input type="file" id="fileInput" multiple accept="image/*"
+				style="display: none;">
+
+			<!-- Pulsanti per la selezione del formato di destinazione -->
+			<div id="formatButtons" style="margin-top: 20px; display: none;">
+				<h3>Seleziona il formato di destinazione:</h3>
+				<button class="format-button disabled" id="toJpg" disabled>JPG</button>
+				<button class="format-button disabled" id="toPng" disabled>PNG</button>
+				<button class="format-button disabled" id="toTiff" disabled>TIFF</button>
+				<button class="format-button disabled" id="toGif" disabled>GIF</button>
+				<button class="format-button disabled" id="toPdf" disabled>PDF</button>
+			</div>
+
+			<div class="button-container">
+				<button id="convertButton" class="action-button disabled" disabled>Converti</button>
+				<button id="resetButton" class="action-button">Reset</button>
+			</div>
+
+			<!-- Area per mostrare il risultato (messaggio e link download) -->
+			<div id="resultMessage" style="margin-top: 20px;"></div>
+		</section>
+
+		<!-- Sezione per lavoro coi PDF -->
+		<section id="sezione-pdf" style="display: none;">
+			<h2>lavoro con pdf</h2>
+			<!-- sottomenu per le operazioni sui pdf -->
+			<nav class="pdf-submenu">
+				<ul>
+					<li><a href="#" id="tab-unisci">Unisci pdf</a></li>
+					<li><a href="#" id="tab-taglia">Taglia pdf</a></li>
+					<li><a href="#" id="tab-comprimi">Comprimi pdf</a></li>
+					<li><a href="#" id="tab-converti">Converti pdf in</a></li>
+				</ul>
+			</nav>
+
+			<!-- contenuti dei singoli tab -->
+			<div class="pdf-content" id="content-unisci" style="display: none;">
+				<!-- qui in futuro metterai form e logica per unire più pdf -->
+				<p>funzionalità unisci pdf da implementare…</p>
+			</div>
+			<div class="pdf-content" id="content-taglia" style="display: none;">
+				<!-- form per selezionare pagine da estrarre -->
+				<p>funzionalità taglia pdf da implementare…</p>
+			</div>
+			<div class="pdf-content" id="content-comprimi" style="display: none;">
+				<!-- settaggi di compressione -->
+				<p>funzionalità comprimi pdf da implementare…</p>
+			</div>
+			<div class="pdf-content" id="content-converti" style="display: none;">
+				<!-- scegli formato di destinazione -->
+				<p>funzionalità converti pdf in…</p>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Inclusione del footer -->
+	<div th:insert="fragments/footer :: footer"></div>
+
+	<!-- Inclusione del file JS -->
+	<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversione File</title>
+  <!-- Inclusione del font da Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link al file CSS nelle risorse statiche -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+  <!-- Inclusione dell'header -->
+  <div th:insert="fragments/header :: header"></div>
+
+  <div class="container">
+    <!-- Sezione per conversione immagini -->
+    <section id="sezione-immagini" style="display: none;">
+      <h2>Conversione Immagini</h2>
+      
+      <!-- Area drag and drop -->
+      <div id="dropzone">
+        Trascina le tue immagini qui o clicca per selezionarle
+      </div>
+      <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+      
+      <!-- Pulsanti per la selezione del formato di destinazione -->
+      <div id="formatButtons" style="margin-top: 20px; display: none;">
+        <h3>Seleziona il formato di destinazione:</h3>
+        <button class="format-button disabled" id="toJpg" disabled>JPG</button>
+        <button class="format-button disabled" id="toPng" disabled>PNG</button>
+        <button class="format-button disabled" id="toTiff" disabled>TIFF</button>
+        <button class="format-button disabled" id="toGif" disabled>GIF</button>
+        <button class="format-button disabled" id="toPdf" disabled>PDF</button>
+      </div>
+      
+      <!-- Pulsante Converti -->
+      <div style="margin-top: 20px;">
+        <button id="convertButton" class="disabled" disabled>Converti</button>
+      </div>
+      
+      <!-- Area per mostrare il risultato (messaggio e link download) -->
+      <div id="resultMessage" style="margin-top: 20px;"></div>
+    </section>
+    
+    <!-- Sezione per lavoro coi PDF -->
+    <section id="sezione-pdf" style="display: none;">
+      <h2>Lavoro coi PDF</h2>
+      <p>Contenuti e funzionalità da implementare...</p>
+    </section>
+  </div>
+
+  <!-- Inclusione del footer -->
+  <div th:insert="fragments/footer :: footer"></div>
+  
+  <!-- Inclusione del file JS -->
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
