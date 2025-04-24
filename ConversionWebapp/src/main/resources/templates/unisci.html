@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Unisci pdf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/pdf.css}">
+</head>
+<body>
+
+  <!-- header comune -->
+  <header th:replace="fragments/header :: header"></header>
+
+  <div class="container">
+    <h2>unisci pdf</h2>
+
+    <!-- dropzone per i pdf -->
+    <div id="pdf-dropzone" class="dropzone">
+      trascina qui fino a 10 pdf o clicca per selezionare<br>
+      <input type="file" id="pdfInput" multiple accept="application/pdf" style="display: none;">
+    </div>
+
+    <!-- area anteprime -->
+    <ul id="previewList" class="pdf-preview-list"></ul>
+
+    <!-- pulsanti azione -->
+    <div class="button-container">
+      <button id="mergeButton" class="action-button disabled" disabled>unisci</button>
+      <button id="resetButton" class="action-button">reset</button>
+    </div>
+  </div>
+
+  <!-- footer comune -->
+  <footer th:replace="fragments/footer :: footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script th:src="@{/js/pdf-unisci.js}"></script>
+</body>
+</html>

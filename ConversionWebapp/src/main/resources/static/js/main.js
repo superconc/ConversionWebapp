@@ -211,20 +211,56 @@ convertButton.addEventListener('click', () => {
 		});
 });
 
-
-// sottomenu pdf
-const tabs = ['unisci', 'taglia', 'comprimi', 'converti'];
-tabs.forEach(tab => {
-	document.getElementById(`tab-${tab}`)
-		.addEventListener('click', e => {
-			e.preventDefault();
-			// nascondi tutte le sezioni
-			tabs.forEach(t => {
-				document.getElementById(`content-${t}`).style.display = 'none';
-				document.getElementById(`tab-${t}`).classList.remove('active');
-			});
-			// mostra la sezione selezionata
-			document.getElementById(`content-${tab}`).style.display = 'block';
-			document.getElementById(`tab-${tab}`).classList.add('active');
-		});
+// pdf tab switching
+const pdfTabs = ['unisci','taglia','comprimi','converti'];
+pdfTabs.forEach(tab => {
+  const menu = document.getElementById(`tab-${tab}`);
+  const content = document.getElementById(`content-${tab}`);
+  menu.addEventListener('click', e => {
+    e.preventDefault();
+    // nascondi tutte
+    pdfTabs.forEach(t => {
+      document.getElementById(`content-${t}`).style.display = 'none';
+      document.getElementById(`tab-${t}`).classList.remove('active');
+    });
+    // mostra selezionata
+    content.style.display = 'block';
+    menu.classList.add('active');
+  });
 });
+
+//// sottomenu pdf
+//const tabs = ['unisci', 'taglia', 'comprimi', 'converti'];
+//tabs.forEach(tab => {
+//	document.getElementById(`tab-${tab}`)
+//		.addEventListener('click', e => {
+//			e.preventDefault();
+//			// nascondi tutte le sezioni
+//			tabs.forEach(t => {
+//				document.getElementById(`content-${t}`).style.display = 'none';
+//				document.getElementById(`tab-${t}`).classList.remove('active');
+//			});
+//			// mostra la sezione selezionata
+//			document.getElementById(`content-${tab}`).style.display = 'block';
+//			document.getElementById(`tab-${tab}`).classList.add('active');
+//		});
+//});
+//
+//
+//// all’interno di main.js, dopo i listener esistenti:
+//const pdfTabs = ['unisci','taglia','comprimi','converti'];
+//pdfTabs.forEach(tab => {
+//  document.getElementById(`tab-${tab}`)
+//    .addEventListener('click', e => {
+//      e.preventDefault();
+//      // nascondi tutte le sezioni
+//      pdfTabs.forEach(t => {
+//        document.getElementById(`content-${t}`).style.display = 'none';
+//        document.getElementById(`tab-${t}`).classList.remove('active');
+//      });
+//      // mostra solo il contenuto selezionato
+//      document.getElementById(`content-${tab}`).style.display = 'block';
+//      document.getElementById(`tab-${tab}`).classList.add('active');
+//    });
+//});
+//
